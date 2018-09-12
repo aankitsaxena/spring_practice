@@ -1,19 +1,21 @@
 package com.in28minutes.spring.basics.springin5steps;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BinarySearchImpl {
 	
 	@Autowired
-	private SortAlgorithm bubbleSortAlgorithm;
+	@Qualifier("bubble")
+	private SortAlgorithm sortAlgorithm;
 
 
 	
 	public BinarySearchImpl(SortAlgorithm bubbleSortAlgorithm) {
 		super();
-		this.bubbleSortAlgorithm = bubbleSortAlgorithm;
+		this.sortAlgorithm = bubbleSortAlgorithm;
 	}
 
 
@@ -21,8 +23,8 @@ public class BinarySearchImpl {
 	public int binarySearch(int[] numbers, int number) {
 		
 		
-		int[] sortedNumbers = bubbleSortAlgorithm.sort(numbers);
-		System.out.println(bubbleSortAlgorithm);
+		int[] sortedNumbers = sortAlgorithm.sort(numbers);
+		System.out.println(sortAlgorithm);
 		
 		return 3;
 	}
@@ -30,12 +32,12 @@ public class BinarySearchImpl {
 
 
 	public SortAlgorithm getBubbleSortAlgorithm() {
-		return bubbleSortAlgorithm;
+		return sortAlgorithm;
 	}
 
 
 
 	public void setBubbleSortAlgorithm(SortAlgorithm bubbleSortAlgorithm) {
-		this.bubbleSortAlgorithm = bubbleSortAlgorithm;
+		this.sortAlgorithm = bubbleSortAlgorithm;
 	}
 }
