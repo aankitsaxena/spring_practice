@@ -7,20 +7,35 @@ import org.springframework.stereotype.Component;
 public class BinarySearchImpl {
 	
 	@Autowired
-	SortAlgorithm sortAlgorithm;
+	private SortAlgorithm bubbleSortAlgorithm;
+
+
 	
-	
-	public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
-		this.sortAlgorithm = sortAlgorithm;
+	public BinarySearchImpl(SortAlgorithm bubbleSortAlgorithm) {
+		super();
+		this.bubbleSortAlgorithm = bubbleSortAlgorithm;
 	}
+
 
 
 	public int binarySearch(int[] numbers, int number) {
 		
 		
-		int[] sortedNumbers = sortAlgorithm.sort(numbers);
-		System.out.println(sortAlgorithm);
+		int[] sortedNumbers = bubbleSortAlgorithm.sort(numbers);
+		System.out.println(bubbleSortAlgorithm);
 		
 		return 3;
+	}
+
+
+
+	public SortAlgorithm getBubbleSortAlgorithm() {
+		return bubbleSortAlgorithm;
+	}
+
+
+
+	public void setBubbleSortAlgorithm(SortAlgorithm bubbleSortAlgorithm) {
+		this.bubbleSortAlgorithm = bubbleSortAlgorithm;
 	}
 }
